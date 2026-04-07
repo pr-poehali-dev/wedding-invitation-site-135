@@ -10,9 +10,9 @@ const Index = () => {
     <main className="wedding-site">
       <HeroSection />
       <EventDetails />
+      <ScheduleBanner />
       <DressCode />
       <RSVPSection />
-      <ScheduleBanner />
       <FooterSection />
     </main>
   );
