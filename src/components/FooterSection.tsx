@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import Icon from "@/components/ui/icon";
+
 const FooterSection = () => {
   return (
     <footer className="site-footer" aria-label="Подвал сайта">
@@ -49,6 +52,11 @@ const FooterSection = () => {
             <span>Telegram</span>
           </a>
         </div>
+
+        <Link to="/schedule" className="footer-schedule-link" aria-label="Посмотреть план дня">
+          <Icon name="CalendarClock" size={15} />
+          <span>План свадебного дня →</span>
+        </Link>
 
         <p className="footer-copy">15 · 08 · 2025</p>
       </div>
