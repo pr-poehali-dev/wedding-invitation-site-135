@@ -529,6 +529,141 @@
   line-height: 1.65;
 }
 
+/* Text-only dresscode cards */
+.dresscode-text-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  text-align: left;
+  margin-bottom: 36px;
+}
+
+.dresscode-text-card {
+  border-radius: var(--radius-card);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.dresscode-text-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(74, 74, 74, 0.11);
+}
+
+.dresscode-text-card__eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-rose-gold);
+  margin: 0 0 10px;
+}
+
+.dresscode-text-card__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--c-text);
+  margin: 0 0 18px;
+}
+
+.dresscode-text-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.dresscode-text-card__list li {
+  font-size: 0.88rem;
+  color: var(--c-text);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.dresscode-text-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-rose-gold);
+  opacity: 0.6;
+}
+
+.dresscode-text-card__hint {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--c-text-light);
+  margin: 0;
+  line-height: 1.6;
+  padding-top: 16px;
+  border-top: 1px solid rgba(74, 74, 74, 0.08);
+}
+
+/* Phase headers */
+.phase-block {
+  margin-bottom: 16px;
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 860px;
+  margin: 0 auto 8px;
+  padding: 0 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.phase-header--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phase-header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--c-cream);
+  border: 1px solid var(--c-border);
+  color: var(--c-rose-gold);
+  flex-shrink: 0;
+}
+
+.phase-header span {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--c-text);
+  white-space: nowrap;
+}
+
+.phase-header__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--c-border), transparent);
+}
+
+.timeline-phases {
+  padding-bottom: 20px;
+}
+
 .dresscode-note {
   display: inline-flex;
   align-items: center;

@@ -54,41 +54,35 @@ const DressCode = () => {
           ))}
         </div>
 
-        <div className="dresscode-cards">
-          <div className="dresscode-card dresscode-card--ladies">
-            <div className="dresscode-card__img-wrap">
-              <img
-                src="https://cdn.poehali.dev/projects/a691544a-64b0-4667-9ba2-63786d409ac1/files/9d3234fd-9290-414b-a8fa-19e99c91b6ed.jpg"
-                alt="Образ для дам — пастельное платье"
-                loading="lazy"
-              />
-              <div className="dresscode-card__badge">для дам</div>
-            </div>
-            <div className="dresscode-card__text">
-              <h3>Для дам</h3>
-              <p>
-                Платья в пастельных тонах — нежно‑розовый, пудровый голубой, кремовый, лавандовый.
-                Лёгкие ткани: шифон, шёлк, органза. Открытые туфли на каблуке или изящные балетки.
-              </p>
-            </div>
+        <div className="dresscode-text-cards">
+          <div className="dresscode-text-card" style={{ backgroundColor: "#ffdae9" }}>
+            <p className="dresscode-text-card__eyebrow">для дам</p>
+            <h3 className="dresscode-text-card__title">Пастельные тона</h3>
+            <ul className="dresscode-text-card__list">
+              <li>Нежно-розовый и пудровый</li>
+              <li>Лавандовый и сиреневый</li>
+              <li>Кремовый и персиковый</li>
+              <li>Пудровый голубой и мятный</li>
+              <li>Шалфей и фисташковый</li>
+            </ul>
+            <p className="dresscode-text-card__hint">
+              Лёгкие ткани: шифон, шёлк, органза.<br />Туфли на каблуке или изящные балетки.
+            </p>
           </div>
 
-          <div className="dresscode-card dresscode-card--gents">
-            <div className="dresscode-card__img-wrap">
-              <img
-                src="https://cdn.poehali.dev/projects/a691544a-64b0-4667-9ba2-63786d409ac1/files/25ae511d-faac-4f9a-b1a5-cb3d58d16db9.jpg"
-                alt="Образ для джентльменов — светлый костюм"
-                loading="lazy"
-              />
-              <div className="dresscode-card__badge">для джентльменов</div>
-            </div>
-            <div className="dresscode-card__text">
-              <h3>Для джентльменов</h3>
-              <p>
-                Светлые костюмы — бежевый, молочный, светло-серый. Рубашки пастельных оттенков,
-                галстуки или платки в тонах эвкалипта. Лаконичные аксессуары.
-              </p>
-            </div>
+          <div className="dresscode-text-card" style={{ backgroundColor: "#d0e8d5" }}>
+            <p className="dresscode-text-card__eyebrow">для джентльменов</p>
+            <h3 className="dresscode-text-card__title">Светлые тона</h3>
+            <ul className="dresscode-text-card__list">
+              <li>Бежевый и молочный костюм</li>
+              <li>Светло-серый и песочный</li>
+              <li>Рубашки пастельных оттенков</li>
+              <li>Галстук или платок в тонах эвкалипта</li>
+              <li>Лаконичные аксессуары</li>
+            </ul>
+            <p className="dresscode-text-card__hint">
+              Льняные или шерстяные костюмы.<br />Лёгкая обувь светлых оттенков.
+            </p>
           </div>
         </div>
 

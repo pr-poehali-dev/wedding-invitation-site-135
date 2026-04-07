@@ -2,54 +2,92 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
-const events = [
+type Phase = "welcome" | "ceremony" | "main";
+
+const events: { time: string; title: string; description: string; icon: string; color: string; accent: string; phase: Phase }[] = [
+  // ── ВЕЛКОМ ──────────────────────────────────────────
   {
-    time: "15:30",
-    title: "Сбор гостей",
-    description: "Встречайте близких в саду ресторана. Лёгкие закуски, живая музыка и атмосфера ожидания чуда.",
-    icon: "Users",
+    time: "15:00",
+    title: "Велком-зона открыта",
+    description: "Гости собираются в уютной велком-зоне. Приветственные напитки, лёгкие канапе и живая фоновая музыка.",
+    icon: "Smile",
     color: "#ffdae9",
     accent: "#b76e79",
+    phase: "welcome",
   },
   {
+    time: "15:30",
+    title: "Знакомство и общение",
+    description: "Время познакомиться поближе. Фотозона с цветочными композициями, ароматный чай и атмосфера ожидания.",
+    icon: "Users",
+    color: "#fff8f2",
+    accent: "#b76e79",
+    phase: "welcome",
+  },
+  // ── ЦЕРЕМОНИЯ ───────────────────────────────────────
+  {
     time: "16:00",
-    title: "Церемония",
-    description: "Торжественная выездная церемония в цветущем саду. Обмен клятвами и кольцами под открытым небом.",
+    title: "Начало церемонии",
+    description: "Торжественный выход жениха и невесты. Живая музыка, цветочная арка и замирающее от счастья сердце.",
     icon: "Heart",
     color: "#d0e8d5",
     accent: "#5a8a6a",
+    phase: "ceremony",
   },
   {
-    time: "16:45",
-    title: "Поздравления",
-    description: "Время для объятий, слёз радости и тёплых слов от самых близких людей.",
+    time: "16:15",
+    title: "Обмен клятвами",
+    description: "Самые важные слова в жизни — обещания любить, беречь и быть рядом. Обмен кольцами под открытым небом.",
+    icon: "Gem",
+    color: "#ffdae9",
+    accent: "#b76e79",
+    phase: "ceremony",
+  },
+  {
+    time: "16:40",
+    title: "Первый поцелуй и фото",
+    description: "Официальное начало семейной жизни. Аплодисменты, лепестки роз, первые снимки в качестве супругов.",
+    icon: "Camera",
+    color: "#d0e8d5",
+    accent: "#5a8a6a",
+    phase: "ceremony",
+  },
+  {
+    time: "17:00",
+    title: "Поздравления гостей",
+    description: "Время обнять молодожёнов, сказать тёплые слова и подарить подарки. Шампанское и живые цветы.",
     icon: "MessageCircle",
     color: "#fff8f2",
     accent: "#b76e79",
+    phase: "ceremony",
   },
-  {
-    time: "17:15",
-    title: "Фотосессия",
-    description: "Прогулка по саду с фотографом. Золотой час, эвкалипт и розы создадут идеальные кадры на память.",
-    icon: "Camera",
-    color: "#ffdae9",
-    accent: "#b76e79",
-  },
+  // ── ОСНОВНАЯ ЧАСТЬ ──────────────────────────────────
   {
     time: "18:00",
     title: "Торжественный ужин",
     description: "Открытие банкетного зала. Авторское меню от шеф-повара, сезонные продукты и природные ароматы.",
     icon: "UtensilsCrossed",
-    color: "#d0e8d5",
-    accent: "#5a8a6a",
+    color: "#ffdae9",
+    accent: "#b76e79",
+    phase: "main",
   },
   {
-    time: "19:30",
+    time: "19:00",
     title: "Тосты и речи",
-    description: "Слово родителям и дорогим гостям. Шампанское, истории и самые тёплые пожелания молодожёнам.",
+    description: "Слово родителям и дорогим гостям. Истории, смех, слёзы и самые тёплые пожелания молодожёнам.",
     icon: "Wine",
+    color: "#d0e8d5",
+    accent: "#5a8a6a",
+    phase: "main",
+  },
+  {
+    time: "20:00",
+    title: "Первый танец",
+    description: "Первый танец молодожёнов — тот самый момент, ради которого стоит смотреть не отрываясь.",
+    icon: "Music",
     color: "#fff8f2",
     accent: "#b76e79",
+    phase: "main",
   },
   {
     time: "20:30",
@@ -58,24 +96,41 @@ const events = [
     icon: "Cake",
     color: "#ffdae9",
     accent: "#b76e79",
+    phase: "main",
   },
   {
     time: "21:00",
-    title: "Танцы и вечеринка",
-    description: "Первый танец молодожёнов, а затем — танцпол открыт для всех! Живая музыка и диджей до рассвета.",
-    icon: "Music",
+    title: "Танцпол открыт",
+    description: "Живая музыка сменяется диджеем — и все гости выходят на танцпол. Весело, ярко и до рассвета.",
+    icon: "Zap",
     color: "#d0e8d5",
     accent: "#5a8a6a",
+    phase: "main",
   },
   {
     time: "23:00",
     title: "Финал вечера",
-    description: "Красивое завершение — запуск летящих фонариков в ночное небо и прощальный фейерверк.",
+    description: "Запуск светящихся фонариков в ночное небо и прощальный фейерверк. Незабываемое завершение дня.",
     icon: "Sparkles",
     color: "#fff8f2",
     accent: "#b76e79",
+    phase: "main",
   },
 ];
+
+const phaseLabels: Record<Phase, string> = {
+  welcome: "Велком",
+  ceremony: "Церемония",
+  main: "Основная часть",
+};
+
+const phaseIcons: Record<Phase, string> = {
+  welcome: "Coffee",
+  ceremony: "Flower2",
+  main: "Star",
+};
+
+const phases: Phase[] = ["welcome", "ceremony", "main"];
 
 const TimelineItem = ({ event, index }: { event: typeof events[0]; index: number }) => {
   const [visible, setVisible] = useState(false);
@@ -117,6 +172,30 @@ const TimelineItem = ({ event, index }: { event: typeof events[0]; index: number
   );
 };
 
+const PhaseHeader = ({ phase }: { phase: Phase }) => {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`phase-header ${visible ? "phase-header--visible" : ""}`}>
+      <div className="phase-header__icon">
+        <Icon name={phaseIcons[phase] as "Coffee"} size={16} />
+      </div>
+      <span>{phaseLabels[phase]}</span>
+      <div className="phase-header__line" aria-hidden="true" />
+    </div>
+  );
+};
+
 const Schedule = () => {
   const [headerVisible, setHeaderVisible] = useState(false);
 
@@ -137,15 +216,26 @@ const Schedule = () => {
         <h1 className="schedule-title">План дня</h1>
         <div className="section-title-line" aria-hidden="true" />
         <p className="schedule-subtitle">
-          Каждый момент продуман с любовью — от первого взгляда<br />до последнего танца под звёздами
+          Каждый момент продуман с любовью — от велкома<br />до последнего танца под звёздами
         </p>
       </header>
 
-      <div className="timeline" role="list" aria-label="Расписание свадебного дня">
-        <div className="timeline-line" aria-hidden="true" />
-        {events.map((event, i) => (
-          <TimelineItem key={event.time} event={event} index={i} />
-        ))}
+      <div className="timeline-phases">
+        {phases.map((phase) => {
+          const phaseEvents = events.filter((e) => e.phase === phase);
+          const globalIndex = events.findIndex((e) => e.phase === phase);
+          return (
+            <div key={phase} className="phase-block">
+              <PhaseHeader phase={phase} />
+              <div className="timeline" role="list" aria-label={`${phaseLabels[phase]} — расписание`}>
+                <div className="timeline-line" aria-hidden="true" />
+                {phaseEvents.map((event, i) => (
+                  <TimelineItem key={event.time} event={event} index={globalIndex + i} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div className="schedule-footer-note">
