@@ -25,7 +25,7 @@ const HeroSection = () => {
 
         <div className="hero-divider-line" aria-hidden="true" />
 
-        <h1 className="hero-names">Анна и Максим</h1>
+        <h1 className="hero-names">Матвей и Анастасия</h1>
 
         <p className="hero-subtitle">
           Приглашаем разделить с нами день,<br />
@@ -33,7 +33,7 @@ const HeroSection = () => {
         </p>
 
         <div className="hero-date-badge">
-          <span>15 августа 2025</span>
+          <span>8 августа 2025</span>
         </div>
 
         <div className="hero-botanical" aria-hidden="true">

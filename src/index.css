@@ -888,6 +888,122 @@
   }
 }
 
+/* ─── SCHEDULE BANNER ────────────────────────────────── */
+.schedule-banner-wrap {
+  padding: 0 24px 80px;
+  background: var(--c-bg);
+}
+
+.schedule-banner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 36px;
+  background: linear-gradient(
+    135deg,
+    var(--c-eucalyptus) 0%,
+    var(--c-blush) 100%
+  );
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(183, 110, 121, 0.12);
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.schedule-banner--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.schedule-banner__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.schedule-banner__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-rose-gold);
+  flex-shrink: 0;
+}
+
+.schedule-banner__eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-rose-gold);
+  margin: 0 0 4px;
+}
+
+.schedule-banner__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--c-text);
+  margin: 0 0 4px;
+}
+
+.schedule-banner__sub {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--c-text-light);
+  margin: 0;
+}
+
+.schedule-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--c-text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.schedule-banner__btn:hover {
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 74, 74, 0.12);
+}
+
+@media (max-width: 580px) {
+  .schedule-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  .schedule-banner__btn {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
 /* ─── FOOTER ─────────────────────────────────────────── */
 .site-footer {
   padding: 56px 24px 48px;

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Icon from "@/components/ui/icon";
 
 const FooterSection = () => {
   return (
@@ -19,7 +18,7 @@ const FooterSection = () => {
       <div className="footer-divider" aria-hidden="true" />
 
       <div className="footer-inner">
-        <p className="footer-love">С любовью, Анна и Максим</p>
+        <p className="footer-love">С любовью, Матвей и Анастасия</p>
 
         <div className="footer-socials" role="list" aria-label="Социальные сети">
           <a
@@ -53,12 +52,7 @@ const FooterSection = () => {
           </a>
         </div>
 
-        <Link to="/schedule" className="footer-schedule-link" aria-label="Посмотреть план дня">
-          <Icon name="CalendarClock" size={15} />
-          <span>План свадебного дня →</span>
-        </Link>
-
-        <p className="footer-copy">15 · 08 · 2025</p>
+        <p className="footer-copy">08 · 08 · 2025</p>
       </div>
     </footer>
   );

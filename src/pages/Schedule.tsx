@@ -212,7 +212,7 @@ const Schedule = () => {
       </Link>
 
       <header className={`schedule-header ${headerVisible ? "schedule-header--visible" : ""}`}>
-        <p className="section-eyebrow">15 августа 2025</p>
+        <p className="section-eyebrow">8 августа 2025</p>
         <h1 className="schedule-title">План дня</h1>
         <div className="section-title-line" aria-hidden="true" />
         <p className="schedule-subtitle">

@@ -5,8 +5,8 @@ const cards = [
   {
     icon: "Calendar",
     label: "Дата",
-    value: "15 августа 2025",
-    sub: "суббота",
+    value: "8 августа 2025",
+    sub: "пятница",
     color: "#ffdae9",
   },
   {

@@ -45,7 +45,7 @@ const RSVPSection = () => {
         <div className="section-title-line" aria-hidden="true" />
 
         <p className="rsvp-intro">
-          Пожалуйста, подтвердите своё присутствие до <strong>1 августа 2025</strong>.
+          Пожалуйста, подтвердите своё присутствие до <strong>25 июля 2025</strong>.
           Это поможет нам подготовить всё для вашего комфорта.
         </p>
 
